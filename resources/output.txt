@@ -1,0 +1,1 @@
+In 'CA' region the average salary of a 'Developer' is 25000.0In 'FA' region the average salary of a 'Developer' is 10000.0

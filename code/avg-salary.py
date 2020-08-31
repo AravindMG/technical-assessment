@@ -14,7 +14,7 @@ def filter_necessary_cols(df):
     df_filtered_cols = df[['jobTitleName', 'region', 'salary']]
     df_filtered_cols['salary'] = df_filtered_cols['salary'].replace(',', '', regex=True)
     df_filtered_cols['salary'] = df_filtered_cols['salary'].astype('int')
-    # print(df_filtered_cols)
+    print(df_filtered_cols)
     return df_filtered_cols
 
 
@@ -65,6 +65,7 @@ def avg_sal_prog_dir_CA(CA_prog_dir):
     mean_salary = CA_prog_dir['salary'].mean()
     return "In 'CA' region the average salary of a 'Program Directory' is " + str(mean_salary) + "\n"
 
+
 # Product owner CA
 def filter_prod_own_CA(df_filtered_cols):
     CA_prod_own = df_filtered_cols[
@@ -75,6 +76,7 @@ def filter_prod_own_CA(df_filtered_cols):
 def avg_sal_prod_own_CA(CA_prod_own):
     mean_salary = CA_prod_own['salary'].mean()
     return "In 'CA' region the average salary of a 'ProductOwner' is " + str(mean_salary) + "\n"
+
 
 # product owner SA
 def filter_prod_own_SA(df_filtered_cols):
@@ -87,6 +89,7 @@ def avg_sal_prod_own_SA(SA_prod_own):
     mean_salary = SA_prod_own['salary'].mean()
     return "In 'SA' region the average salary of a 'ProductOwner' is " + str(mean_salary) + "\n"
 
+
 # product owner YA
 def filter_prod_own_YA(df_filtered_cols):
     YA_prod_own = df_filtered_cols[
@@ -96,7 +99,7 @@ def filter_prod_own_YA(df_filtered_cols):
 
 def avg_sal_prod_own_YA(YA_prod_own):
     mean_salary = YA_prod_own['salary'].mean()
-    return "In 'SA' region the average salary of a 'ProductOwner' is " + str(mean_salary) + "\n"
+    return "In 'YA' region the average salary of a 'ProductOwner' is " + str(mean_salary) + "\n"
 
 
 def write_to_out():
@@ -112,3 +115,4 @@ def write_to_out():
 
 if __name__ == "__main__":
     write_to_out()
+    filter_necessary_cols(read_json())

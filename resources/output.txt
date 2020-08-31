@@ -1,1 +1,7 @@
-In 'CA' region the average salary of a 'Developer' is 25000.0In 'FA' region the average salary of a 'Developer' is 10000.0
+In 'CA' region the average salary of a 'Developer' is 25000.0
+In 'FA' region the average salary of a 'Developer' is 10000.0
+In 'YA' region the average salary of a 'Developer' is 20000.0
+In 'CA' region the average salary of a 'Program Directory' is 15000.0
+In 'CA' region the average salary of a 'ProductOwner' is 2000.0
+In 'SA' region the average salary of a 'ProductOwner' is 31666.666666666668
+In 'SA' region the average salary of a 'ProductOwner' is 17000.0

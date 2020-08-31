@@ -27,7 +27,7 @@ def filter_dev_CA(df_filtered_cols):
 
 def avg_sal_dev_CA(CA_dev):
     mean_salary = CA_dev['salary'].mean()
-    return "In 'CA' region the average salary of a 'Developer' is " + str(mean_salary)
+    return "In 'CA' region the average salary of a 'Developer' is " + str(mean_salary) + "\n"
 
 
 def filter_dev_FA(df_filtered_cols):
@@ -39,7 +39,7 @@ def filter_dev_FA(df_filtered_cols):
 
 def avg_sal_dev_FA(FA_dev):
     mean_salary = FA_dev['salary'].mean()
-    return "In 'FA' region the average salary of a 'Developer' is " + str(mean_salary)
+    return "In 'FA' region the average salary of a 'Developer' is " + str(mean_salary) + "\n"
 
 
 def filter_dev_YA(df_filtered_cols):
@@ -51,7 +51,7 @@ def filter_dev_YA(df_filtered_cols):
 
 def avg_sal_dev_YA(YA_dev):
     mean_salary = YA_dev['salary'].mean()
-    print("In 'YA' region the average salary of a 'Developer' is " + str(mean_salary))
+    return "In 'YA' region the average salary of a 'Developer' is " + str(mean_salary) + "\n"
 
 
 # Program directory is only in CA region
@@ -63,7 +63,7 @@ def filter_prog_dir_CA(df_filtered_cols):
 
 def avg_sal_prog_dir_CA(CA_prog_dir):
     mean_salary = CA_prog_dir['salary'].mean()
-    print("In 'CA' region the average salary of a 'Program Directory' is " + str(mean_salary))
+    return "In 'CA' region the average salary of a 'Program Directory' is " + str(mean_salary) + "\n"
 
 # Product owner CA
 def filter_prod_own_CA(df_filtered_cols):
@@ -74,7 +74,7 @@ def filter_prod_own_CA(df_filtered_cols):
 
 def avg_sal_prod_own_CA(CA_prod_own):
     mean_salary = CA_prod_own['salary'].mean()
-    print("In 'CA' region the average salary of a 'ProductOwner' is " + str(mean_salary))
+    return "In 'CA' region the average salary of a 'ProductOwner' is " + str(mean_salary) + "\n"
 
 # product owner SA
 def filter_prod_own_SA(df_filtered_cols):
@@ -85,7 +85,7 @@ def filter_prod_own_SA(df_filtered_cols):
 
 def avg_sal_prod_own_SA(SA_prod_own):
     mean_salary = SA_prod_own['salary'].mean()
-    print("In 'SA' region the average salary of a 'ProductOwner' is " + str(mean_salary))
+    return "In 'SA' region the average salary of a 'ProductOwner' is " + str(mean_salary) + "\n"
 
 # product owner YA
 def filter_prod_own_YA(df_filtered_cols):
@@ -96,17 +96,19 @@ def filter_prod_own_YA(df_filtered_cols):
 
 def avg_sal_prod_own_YA(YA_prod_own):
     mean_salary = YA_prod_own['salary'].mean()
-    print("In 'SA' region the average salary of a 'ProductOwner' is " + str(mean_salary))
+    return "In 'SA' region the average salary of a 'ProductOwner' is " + str(mean_salary) + "\n"
+
+
+def write_to_out():
+    outfile = open('/Users/aravind/Documents/technical-assessment/resources/output.txt', 'w')
+    outfile.write(avg_sal_dev_CA(filter_dev_CA(filter_necessary_cols(read_json()))))
+    outfile.write(avg_sal_dev_FA(filter_dev_FA(filter_necessary_cols(read_json()))))
+    outfile.write(avg_sal_dev_YA(filter_dev_YA(filter_necessary_cols(read_json()))))
+    outfile.write(avg_sal_prog_dir_CA(filter_prog_dir_CA(filter_necessary_cols(read_json()))))
+    outfile.write(avg_sal_prod_own_CA(filter_prod_own_CA(filter_necessary_cols(read_json()))))
+    outfile.write(avg_sal_prod_own_SA(filter_prod_own_SA(filter_necessary_cols(read_json()))))
+    outfile.write(avg_sal_prod_own_YA(filter_prod_own_YA(filter_necessary_cols(read_json()))))
 
 
 if __name__ == "__main__":
-    avg_sal_dev_CA(filter_dev_CA(filter_necessary_cols(read_json())))
-    avg_sal_dev_FA(filter_dev_FA(filter_necessary_cols(read_json())))
-    avg_sal_dev_YA(filter_dev_YA(filter_necessary_cols(read_json())))
-    avg_sal_prog_dir_CA(filter_prog_dir_CA(filter_necessary_cols(read_json())))
-    avg_sal_prod_own_CA(filter_prod_own_CA(filter_necessary_cols(read_json())))
-    avg_sal_prod_own_SA(filter_prod_own_SA(filter_necessary_cols(read_json())))
-    avg_sal_prod_own_YA(filter_prod_own_YA(filter_necessary_cols(read_json())))
-    outfile = open('/Users/aravind/Documents/technical-assessment/resources/output.txt', 'w')
-    outfile.write(str(avg_sal_dev_CA(filter_dev_CA(filter_necessary_cols(read_json())))))
-    outfile.write(str(avg_sal_dev_FA(filter_dev_FA(filter_necessary_cols(read_json())))))
+    write_to_out()

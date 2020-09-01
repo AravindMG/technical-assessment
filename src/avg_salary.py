@@ -1,8 +1,5 @@
 import json
-import pytest
-import pandas as pd
 from pandas.io.json import json_normalize
-from pandas.testing import assert_frame_equal
 
 
 def read_json():
@@ -26,18 +23,20 @@ def filter_necessary_cols(df):
 def filter_dev_CA(df_filtered_cols):
     CA_dev = df_filtered_cols[
         (df_filtered_cols['jobTitleName'] == 'Developer') & (df_filtered_cols['region'] == 'CA')]
+    # print(CA_dev)
     return CA_dev
 
 
 def avg_sal_dev_CA(CA_dev):
     mean_salary = CA_dev['salary'].mean()
+    print(mean_salary)
     return "In 'CA' region the average salary of a 'Developer' is " + str(mean_salary) + "\n"
 
 
 def filter_dev_FA(df_filtered_cols):
     FA_dev = df_filtered_cols[
         (df_filtered_cols['jobTitleName'] == 'Developer') & (df_filtered_cols['region'] == 'FA')]
-    # print(FA_dev)
+    print(FA_dev)
     return FA_dev
 
 
@@ -49,7 +48,7 @@ def avg_sal_dev_FA(FA_dev):
 def filter_dev_YA(df_filtered_cols):
     YA_dev = df_filtered_cols[
         (df_filtered_cols['jobTitleName'] == 'Developer') & (df_filtered_cols['region'] == 'YA')]
-    # print(YA_dev)
+    print(YA_dev)
     return YA_dev
 
 
@@ -119,4 +118,4 @@ def write_to_out():
 
 if __name__ == "__main__":
     # write_to_out()
-    read_json()
+    filter_dev_YA(filter_necessary_cols(read_json()))

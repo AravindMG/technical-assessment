@@ -1,5 +1,8 @@
 import json
+import pytest
+import pandas as pd
 from pandas.io.json import json_normalize
+from pandas.testing import assert_frame_equal
 
 
 def read_json():
@@ -7,6 +10,7 @@ def read_json():
         data = json.load(sample_data)
         employees = data['Employees']
         df = json_normalize(employees)
+        print(df.head(3))
         return df
 
 
@@ -14,7 +18,7 @@ def filter_necessary_cols(df):
     df_filtered_cols = df[['jobTitleName', 'region', 'salary']]
     df_filtered_cols['salary'] = df_filtered_cols['salary'].replace(',', '', regex=True)
     df_filtered_cols['salary'] = df_filtered_cols['salary'].astype('int')
-    print(df_filtered_cols)
+    # print(df_filtered_cols)
     return df_filtered_cols
 
 
@@ -114,5 +118,5 @@ def write_to_out():
 
 
 if __name__ == "__main__":
-    write_to_out()
-    filter_necessary_cols(read_json())
+    # write_to_out()
+    read_json()

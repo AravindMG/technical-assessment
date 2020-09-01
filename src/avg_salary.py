@@ -3,7 +3,7 @@ from pandas.io.json import json_normalize
 
 
 def read_json():
-    with open("/Users/aravind/Documents/technical-assessment/resources/sample_data.json") as sample_data:
+    with open("../resources/sample_data.json") as sample_data:
         data = json.load(sample_data)
         employees = data['Employees']
         df = json_normalize(employees)
@@ -106,7 +106,7 @@ def avg_sal_prod_own_YA(YA_prod_own):
 
 
 def write_to_out():
-    outfile = open('/Users/aravind/Documents/technical-assessment/resources/output.txt', 'w')
+    outfile = open('../resources//output.txt', 'w')
     outfile.write(avg_sal_dev_CA(filter_dev_CA(filter_necessary_cols(read_json()))))
     outfile.write(avg_sal_dev_FA(filter_dev_FA(filter_necessary_cols(read_json()))))
     outfile.write(avg_sal_dev_YA(filter_dev_YA(filter_necessary_cols(read_json()))))
@@ -117,5 +117,4 @@ def write_to_out():
 
 
 if __name__ == "__main__":
-    # write_to_out()
-    filter_dev_YA(filter_necessary_cols(read_json()))
+    write_to_out()

@@ -1,4 +1,4 @@
-from avg_salary import *
+from src.avg_salary import *
 import pytest
 import pandas as pd
 
